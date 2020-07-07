@@ -2,7 +2,7 @@
 
 ## Team:
 * [Valerie Lobas](https://www.linkedin.com/in/vlobas/)
-* [Randy Dettmer](www.linkedin.com/in/randydettmercscpmba)
+* [Randy Dettmer](https://www.linkedin.com/in/randydettmercscpmba/)
 * [Hunter Block-Beach](https://www.linkedin.com/in/hunter-block-beach-96401267/)
 
 
