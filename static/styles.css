@@ -1,0 +1,15 @@
+.teamimg {
+    max-width: 400px;
+    max-height: 400px;
+    padding-left: 50px;
+    padding-right: 50px;
+    object-fit: scale-down;
+}
+
+p {
+    text-align: center;
+}
+
+div a {
+    text-align: center;
+}
