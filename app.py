@@ -1,16 +1,18 @@
-# import necessary libraries
-import os
+# Import Necessary Libraries
+#import os
 from flask import (
     Flask, 
     render_template,
     jsonify,
     request,
     redirect)
-from flask_bootstrap import Bootstrap
+#from flask_bootstrap import Bootstrap
+#import boto3
 
 # Flask Setup
 app = Flask(__name__)
-Bootstrap(app)
+#Bootstrap(app)
+
 # Database Setup
 #from flask_sqlalchemy import SQLAlchemy
 #app.config['SQLALCHEM_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
