@@ -1,1 +1,0 @@
-web: gunicorn folder_where_app_is.app:app

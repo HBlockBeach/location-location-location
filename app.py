@@ -4,11 +4,12 @@ from flask import (
     Flask, 
     render_template)
 import os
+import pickle
 import boto3
 
 # Flask Setup
 app = Flask(__name__)
-
+model = pickle.load(open('model.pkl', 'rb'))
 
 # Create route that renders index.html template
 @app.route("/")
@@ -25,6 +26,7 @@ def rentals():
 @app.route("/team.html")
 def team():
     return render_template("team.html")
+  
 
 # Added to correct and or prevent favicon error
 #@app.route('/favicon.ico') 
