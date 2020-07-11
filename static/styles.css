@@ -13,3 +13,11 @@ p {
 div a {
     text-align: center;
 }
+
+.updated_est {
+    text-align: center;
+}
+
+#map {
+    height: 432px; 
+}
