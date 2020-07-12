@@ -1,11 +1,14 @@
+# app.py file
 # Import Necessary Libraries
-
 from flask import (
-    Flask, 
+    Flask,
+    request,
+    jsonify, 
     render_template)
-import os
+#import os - needed???
 import pickle
-import boto3
+import numpy as np
+#import boto3 - off for now
 
 # Flask Setup
 app = Flask(__name__)
@@ -26,7 +29,17 @@ def rentals():
 @app.route("/team.html")
 def team():
     return render_template("team.html")
-  
+
+# Render results from model - work in progress - - - - - - - - - - - - - - - -
+@app.route('/predict', methods=['POST'])
+def predict():
+    int_features = [int(x) for x in request.form.values()]
+    final_features = [np.array(int_features)]
+    prediction = model.predict(final_features)
+
+    output = round(prediction[0], 2)
+
+    return render_template('forecast.html', prediction_text="fill this in ${}".format(output))  
 
 # Added to correct and or prevent favicon error
 #@app.route('/favicon.ico') 
