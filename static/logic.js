@@ -9,15 +9,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: mapkey
 }).addTo(mymap);
 
+//placeholder for updating map
+// var i;
+// for (i = 0; i < data.length; i++) {
+//     var marker = L.marker([data[i].lat, data[i].lon]).addTo(mymap)
+//     .bindPopup("<p>Metropolitan Area: " + (data[i].lat));
+// }
 
-let data = d3.csv("../realestate_data/zillow_for_lat_lon.ipynb").then(function(data){
-    console.log(data)
-})
-
-
-//var i;
-//for (i = 0; i < data.length; i++) {
-  //  var marker = L.marker([51.5, -0.09]).addTo(mymap);
-
-//}
-//var marker = L.marker([51.5, -0.09]).addTo(mymap);
