@@ -6,5 +6,18 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: API_KEY
+    accessToken: mapkey
 }).addTo(mymap);
+
+
+let data = d3.csv("../realestate_data/zillow_for_lat_lon.ipynb").then(function(data){
+    console.log(data)
+})
+
+
+//var i;
+//for (i = 0; i < data.length; i++) {
+  //  var marker = L.marker([51.5, -0.09]).addTo(mymap);
+
+//}
+//var marker = L.marker([51.5, -0.09]).addTo(mymap);
