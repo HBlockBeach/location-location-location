@@ -90,10 +90,10 @@ def predict():
         return render_template('index.html', prediction_text="Your Estimated Weekly Income is ${}".format(output))  
 
 # turn off for AWS deployment
-if __name__ == "__main__":
-    app.run(debug=True)
+#if __name__ == "__main__":
+    #app.run(debug=True)
 
 # turn on for AWS deployment
-#if __name__ == "__main__":
-    #app.run(host='0.0.0.0', port=8080)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8080)
 
