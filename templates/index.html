@@ -57,23 +57,23 @@
               <div class="panel panel-default">
                 <div class="panel-heading">Filter Search</div>
                 <div class="panel-body">
-                  <form>
+                  <form action="/predict" method="POST">
                     <div class="form-group">
                       <ul class="list-group" id="filters">
                         <li class="filter list-group-item">
-                          <label for="date">Age</label>
-                          <input class="form-control" id="datetime" type="text" placeholder="40">
+                          <label>Age</label>
+                          <input class="form-control" id="age" name="age" type="text" placeholder="40">
                         </li>
                         <li class="filter list-group-item">
-                          <label for="date">Sex</label>
-                          <input class="form-control" id="city" type="text" placeholder="female">
+                          <label>Sex</label>
+                          <input class="form-control" id="sex" name="sex" type="text" placeholder="female">
                         </li>
                         <li class="filter list-group-item">
-                          <label for="date">Race/Ethnicity</label>
-                          <input class="form-control" id="state" type="text" placeholder="hispanic">
+                          <label>Race/Ethnicity</label>
+                          <input class="form-control" id="race" name="race" type="text" placeholder="hispanic">
                         </li>
                         <li class= "dropdown list-group-item">
-                          <label for="date">Metro Area</label><br>
+                          <label>Metro Area</label><br>
                           <select id="selYear" >
                             <option value="1976">1976</option>
                             <option value="1980">1980</option>
@@ -90,7 +90,12 @@
                         </li>
                       </ul>
                     </div>
-                    <button id="filter-btn" type="button" class="btn btn-default">Estimate Affordability</button>
+                    <button id="filter-btn" type="submit" class="btn btn-default">Estimate Affordability</button>
+
+                    {% if feedback %}
+                      <p class="text-danger float-right">{{ feedback }}</p>
+                    {% endif %} 
+
                   </form>
                 </div>
               </div>
