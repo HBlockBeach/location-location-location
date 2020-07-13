@@ -3,6 +3,7 @@
 from flask import (
     Flask,
     request,
+    redirect,
     jsonify, 
     render_template)
 #import os - needed???
@@ -12,7 +13,7 @@ import numpy as np
 
 # Flask Setup
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('model2.pkl', 'rb'))
 
 # Create route that renders index.html template
 @app.route("/")
@@ -31,15 +32,62 @@ def team():
     return render_template("team.html")
 
 # Render results from model - work in progress - - - - - - - - - - - - - - - -
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
-    int_features = [int(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
+    if request.method == "POST":
+        # Redisplay page with warning for missing fields
+        missing = list()
 
-    output = round(prediction[0], 2)
+        for k, v in request.form.items():
+            if v == "":
+                missing.append(k)
 
-    return render_template('forecast.html', prediction_text="fill this in ${}".format(output))  
+        if missing:
+            feedback = f"Missing fields for {', '.join(missing)}"
+            return render_template("index.html", feedback=feedback)
+
+        #return redirect(request.url)
+    
+        # Receive form inputs
+        age = int(request.form["age"])
+        sex = request.form["sex"]
+        race = request.form["race"]
+
+        print(f"age: {age}, sex: {sex}, race: {race}")
+        
+        # Transform inputs into array for ML model
+        
+        if age<25:
+            array_age = [0,0]
+        elif age>54:
+            array_age = [0,1]
+        else:
+            array_age = [1,0]
+
+        if race == 'asian':
+            array_race = [0,0,0]
+        elif race == 'black':
+            array_race = [1,0,0]
+        elif race == 'hispanic':
+            array_race = [0,1,0]
+        else:
+            array_race = [0,0,1]
+
+        if sex == 'male':
+            array_sex = [0]
+        else:
+            array_sex = [1]
+
+        features = np.array([array_age + array_race + array_sex])
+        print(features)
+        
+        # Call ML model
+        prediction = model.predict(features)
+
+        output = np.round(prediction[0], 2)
+
+        # Return prediction
+        return render_template('index.html', prediction_text="Your Estimated Weekly Income is ${}".format(output))  
 
 # Added to correct and or prevent favicon error
 #@app.route('/favicon.ico') 
