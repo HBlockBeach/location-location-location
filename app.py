@@ -89,11 +89,11 @@ def predict():
         # Return prediction
         return render_template('index.html', prediction_text="Your Estimated Weekly Income is ${}".format(output))  
 
-# Added to correct and or prevent favicon error
-#@app.route('/favicon.ico') 
-#def favicon(): 
-    #return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
-
+# turn off for AWS deployment
 if __name__ == "__main__":
     app.run(debug=True)
+
+# turn on for AWS deployment
+#if __name__ == "__main__":
+    #app.run(host='0.0.0.0', port=8080)
+
