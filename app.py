@@ -80,7 +80,7 @@ def predict():
         prediction = model.predict(features)
 
         income = np.round(prediction[0], 2)
-        income2 = income * 52
+        income2 = np.round((income * 52), 2)
         income_wkly = ' '.join(map(str, income))
         income_yrly = ' '.join(map(str, income2))
 
