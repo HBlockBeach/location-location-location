@@ -46,17 +46,13 @@ def predict():
             feedback = f"Missing fields for {', '.join(missing)}"
             return render_template("index.html", feedback=feedback)
 
-        #return redirect(request.url)
-    
         # Receive form inputs
         age = int(request.form["age"])
         sex = request.form["sex"]
         race = request.form["race"]
-
-        print(f"age: {age}, sex: {sex}, race: {race}")
+        city = request.form["city"]
         
         # Transform inputs into array for ML model
-        
         if age<25:
             array_age = [0,0]
         elif age>54:
@@ -79,21 +75,35 @@ def predict():
             array_sex = [1]
 
         features = np.array([array_age + array_race + array_sex])
-        print(features)
-        
+                
         # Call ML model
         prediction = model.predict(features)
 
-        output = np.round(prediction[0], 2)
+        income = np.round(prediction[0], 2)
+        income2 = income * 52
+        income_wkly = ' '.join(map(str, income))
+        income_yrly = ' '.join(map(str, income2))
+
+        # Calculate max mortgate payment based on 4.3 average weeks in a month
+        can_afford = income * 4.3 * 0.28
+
+        # NEED TO PULL MEDIAN VALUE FROM ZILLOW FILE - placeholder for now
+        house_price = 175000
+        mortgage = 408/100000 * house_price
+
+        if mortgage > can_afford:
+            decision = "CAN NOT"
+        elif mortgage <= can_afford:
+            decision = "CAN"
 
         # Return prediction
-        return render_template('index.html', prediction_text="Your Estimated Weekly Income is ${}".format(output))  
-
+        return render_template('index.html', prediction_text=f"Your Estimated Income is: ${income_wkly} per week (${income_yrly} per year)", decision_text=f"You {decision} afford a house in {city}") 
+  
 # turn off for AWS deployment
-#if __name__ == "__main__":
-    #app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
 
 # turn on for AWS deployment
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080)
+#if __name__ == "__main__":
+    #app.run(host='0.0.0.0', port=8080)
 
