@@ -11,6 +11,7 @@ import pickle
 import numpy as np
 #import boto3 - off for now
 
+
 # Flask Setup
 app = Flask(__name__)
 model = pickle.load(open('model2.pkl', 'rb'))
@@ -102,6 +103,36 @@ def predict():
             prediction_text=f"the Estimated Income is: ${income_wkly} per week (${income_yrly} per year)",\
             decision_text=f"You {decision} afford a house in {city}") 
   
+
+
+import psycopg2
+import pandas as pd
+from pprint import pprint
+connection = psycopg2.connect(
+    host = 'housingdb.cxrqyy0s90my.us-east-2.rds.amazonaws.com',
+    port = 5432,
+    user = 'root',
+    password = 'ClassProject3718',
+    database='housing'
+    )
+
+@app.route("/data")
+
+def data():
+    data = []
+
+    sql = """
+    SELECT *
+    FROM zillow_housing
+    """
+    datas = pd.read_sql(sql, con=connection)
+    new = datas.to_json(orient="values")
+        
+    return new
+
+    
+
+
 # turn off for AWS deployment
 if __name__ == "__main__":
     app.run(debug=True)

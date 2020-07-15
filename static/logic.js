@@ -16,3 +16,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 //     .bindPopup("<p>Metropolitan Area: " + (data[i].lat));
 // }
 
+var zillowdata = "http://127.0.0.1:5000/data";
+
+var data = d3.json(zillowdata);
+
+console.log(len(data))
+        
+  
