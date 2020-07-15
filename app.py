@@ -96,8 +96,11 @@ def predict():
         elif mortgage <= can_afford:
             decision = "CAN"
 
-        # Return prediction
-        return render_template('index.html', prediction_text=f"Your Estimated Income is: ${income_wkly} per week (${income_yrly} per year)", decision_text=f"You {decision} afford a house in {city}") 
+        # Return website text
+        return render_template('index.html',\
+            summary_text=f"For a {age}-year-old {race} {sex}",\
+            prediction_text=f"the Estimated Income is: ${income_wkly} per week (${income_yrly} per year)",\
+            decision_text=f"You {decision} afford a house in {city}") 
   
 # turn off for AWS deployment
 if __name__ == "__main__":
