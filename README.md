@@ -6,7 +6,7 @@
 * [Hunter Block-Beach](https://www.linkedin.com/in/hunter-block-beach-96401267/)
 
 ## Project Overview:
-<p> The aim of this project is to predict whether a person with specific demographics can afford the median home price in a specific US metro area. The user's income is predicted based on the demographic information entered in the website form and a linear regression  of the historical Bureau of Labor Statistics data. Median home prices were downloaded from Zillow.com. Affordability was determined based on the "mortgage rule of thumb" that a buyer should not spend more than 28% of monthly gross income on a mortgage payment.
+<p> The aim of this project is to predict whether a person with specific demographics can afford the median home price in a specific US metro area. The user's income is predicted based on the demographic information entered in the website form and a linear regression  of the historical Bureau of Labor Statistics (BLS) data. The user also selects a US city from the drop-down menu. Median home prices were downloaded from Zillow.com. Affordability was determined based on the "mortgage rule of thumb" that a buyer should not spend more than 28% of monthly gross income on a mortgage payment.
 <br><br> Tools used include:
   
 - Python
