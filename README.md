@@ -23,32 +23,32 @@
 
 A map is included showing XXX
 </p>
+
 ## Relevant Files: 
 #### Raw Data:
-1. [BLS Data](/income_data)
-2. [Zillow Data](/realestate_data)
-3. [Merged BLS Data](combined_data.csv)
+1. [BLS Data (/income_data)](/income_data)
+2. [Zillow Data (/realestate_data)](/realestate_data)
+3. [Merged BLS Data (combined_data.csv)](combined_data.csv)
 
 #### Python/Jupyter Notebooks:
-* [/](/)
-1. [Data cleanup file](data_cleanup.ipynb)
-2. [Creation of Flask routes](app.py)
-3. [Data Visualization & Machine Learning](models.ipynb)
+1. [Data cleanup file (data_cleanup.ipynb)](data_cleanup.ipynb)
+2. [Creation of Flask routes (app.py)](app.py)
+3. [Data Visualization & Machine Learning (models.ipynb)](models.ipynb)
 
 #### HTML/CSS/JS
 
 * [/static/](static)
-1. [Javascript code for map](static/logic.js)
-2. [CSS](static/styles.css)
+1. [Javascript code for map (static/logic.js)](static/logic.js)
+2. [CSS (static/styles.css)](static/styles.css)
 
 * [/templates/](templates)
-3. [Homepage](index.html)
+3. [Home Page](index.html)
 3. [Team Page](team.html)
 
 #### Other
 
-1. [Linear Regression Model](model2.pkl)
-2. [Requirements File](requirements.txt)
+1. [Linear Regression Model (model2.pkl)](model2.pkl)
+2. [Requirements File (requirements.txt)](requirements.txt)
 
 #### Project Documents
 
