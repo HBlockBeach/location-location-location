@@ -10,7 +10,7 @@ from flask import (
 import pickle
 import numpy as np
 #import boto3 - off for now
-
+from keys import password    #this will need to be updated for the indivdual user
 
 # Flask Setup
 app = Flask(__name__)
@@ -119,7 +119,7 @@ connection = psycopg2.connect(
 @app.route("/data")
 
 def data():
-    data = []
+    datas = []
 
     sql = """
     SELECT *
