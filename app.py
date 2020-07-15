@@ -119,7 +119,7 @@ connection = psycopg2.connect(
 @app.route("/data")
 
 def data():
-    datas = []
+    data = []
 
     sql = """
     SELECT *
@@ -127,7 +127,7 @@ def data():
     """
     datas = pd.read_sql(sql, con=connection)
     new = datas.to_json(orient="values")
-        
+
     return new
 
     
