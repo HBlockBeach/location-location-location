@@ -112,7 +112,7 @@ connection = psycopg2.connect(
     host = 'housingdb.cxrqyy0s90my.us-east-2.rds.amazonaws.com',
     port = 5432,
     user = 'root',
-    password = "ClassProject3718",
+    password = "",
     database='housing'
     )
 
