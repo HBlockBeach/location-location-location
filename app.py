@@ -10,8 +10,9 @@ from flask import (
 import pickle
 import numpy as np
 #import boto3 - off for now
-from keys import password    #this will need to be updated for the indivdual user
-
+#from keys import password    #this will need to be updated for the indivdual user
+import logging
+logger = logging.getLogger('werkzeug')
 # Flask Setup
 app = Flask(__name__)
 model = pickle.load(open('model2.pkl', 'rb'))
@@ -51,7 +52,7 @@ def predict():
         age = int(request.form["age"])
         sex = request.form["sex"]
         race = request.form["race"]
-        city = request.form["city"]
+        city = request.form["city"].strip()
         
         # Transform inputs into array for ML model
         if age<25:
@@ -87,9 +88,23 @@ def predict():
 
         # Calculate max mortgate payment based on 4.3 average weeks in a month
         can_afford = income * 4.3 * 0.28
+   
+        sql = """
+        SELECT *
+        FROM zillow_housing
+        """
+        datas = pd.read_sql(sql, con=connection)
+        datas["RegionName"] = datas["RegionName"].str.strip()
+        data2 = datas[["RegionName", "05-31-2020"]]
+    
+        tryagain = request.form["city"].strip()
+        
+        new = data2[data2['RegionName']==tryagain]
+       
+        value = new.iloc[0]["05-31-2020"]
 
         # NEED TO PULL MEDIAN VALUE FROM ZILLOW FILE - placeholder for now
-        house_price = 175000
+        house_price = value
         mortgage = 408/100000 * house_price
 
         if mortgage > can_afford:
@@ -101,18 +116,22 @@ def predict():
         return render_template('index.html',\
             summary_text=f"For a {age}-year-old {race} {sex}",\
             prediction_text=f"the Estimated Income is: ${income_wkly} per week (${income_yrly} per year)",\
-            decision_text=f"You {decision} afford a house in {city}") 
+            decision_text=f"You {decision}  afford a house in {city}",\
+            #decision_text=f"value {new}",\
+            #test_text= f'these are the columns {house_price} kajsdhfkjhakjhf {mortgage}'
+        )
   
 
 
 import psycopg2
 import pandas as pd
 from pprint import pprint
+
 connection = psycopg2.connect(
     host = 'housingdb.cxrqyy0s90my.us-east-2.rds.amazonaws.com',
     port = 5432,
     user = 'root',
-    password = password,
+    password = 'ClassProject3718',
     database='housing'
     )
 
