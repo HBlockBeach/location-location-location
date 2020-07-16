@@ -6,7 +6,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
     id: 'streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: API_KEY
+    accessToken: ""
 }).addTo(mymap);
 
 var zillowdata = "http://127.0.0.1:5000/data";
@@ -25,5 +25,25 @@ d3.json(zillowdata).then(function(housing_data) {
         
     }
 });
-        
+
+function createchart2(cityinput){
+    d3.json(zillowdata).then(function(citydata) {
+      //console.log(yearData);
+        var dataForInput = citydata.filter(row => row[1] == cityinput);
+        var marker = L.marker([citydata[i][20], citydata[i][21]]).addTo(mymap)
+      });}
+    
+
+d3.selectAll("#city").on("change", updatePage);
+    function updatePage() {
+  // Use D3 to select the dropdown menu
+    var dropdownMenu = d3.selectAll("#selYear").node();
+  // Assign the dropdown menu item ID to a variable
+    var dropdownMenuID = dropdownMenu.id;
+  // Assign the dropdown menu option to a variable
+    var selectedOption = dropdownMenu.value;
+    console.log(dropdownMenuID);
+    console.log(selectedOption);
+    createchart(selectedOption);
+    createchart2(selectedOption)}
   
