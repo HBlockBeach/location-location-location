@@ -6,7 +6,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
     id: 'streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: ""
+    accessToken: "",
 }).addTo(mymap);
 
 // Turn off for AWS deployment
