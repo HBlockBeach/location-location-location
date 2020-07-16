@@ -49,6 +49,18 @@
         </div>
       </nav>
 
+      <div class=row id=headermess>
+        <h3 class = col-md-12 style= text-align:center;>
+          Looking to move? Got a new job? Not sure what you can afford?
+        </h3>
+        <h4 class = col-md-12 style= text-align:center;>
+          Use the tools below to estimate your income and determine whether or not you can afford to buy a house in a specific metro area! 
+        </h4>
+        
+      </div>
+
+      <br>
+  
 
       <div class="container" style="text-align: center;">
         <div class="row margin-top-50">
@@ -74,7 +86,7 @@
                         </li>
                         <li class= "dropdown list-group-item" >
                           <label>Metro Area</label><br>
-                          <select id="city" name="city" >
+                          <select id="city" name="city" onchange="updatePage(this.value)">
                             <option value="New York, NY">New York, NY</option>
                             <option value="Los Angeles-Long Beach-Anaheim, CA">Los Angeles-Long Beach-Anaheim, CA</option>
                             <option value="Chicago, IL">Chicago, IL</option>
@@ -965,7 +977,7 @@
                         </li>
                       </ul>
                     </div>
-                    <button id="filter-btn" type="submit" class="btn btn-default">Estimate Affordability</button>
+                    <button id="filter-btn" type="submit" class="btn btn-default" onsubmit="return false">Estimate Affordability</button>
 
                     {% if feedback %}
                       <p class="text-danger float-right">{{ feedback }}</p>
@@ -978,17 +990,38 @@
           </div>
         
           <div class="col-md-9" id="map">
-            <h1>this is where the map goes</h1>
+  
           </div>
         </div>
-   
+       
 
     <div class="row">
       <h3 class="updated_est">{{ summary_text }}</h3>
       <h3 class="updated_est">{{ prediction_text }}</h3>
       <h3 class="updated_est">{{ decision_text }}</h3>
+      <h3 class="updated_est">{{ test_text }}</h3>
     </div>
      
+
+
+
+    <div class="row" >
+      <table>
+        <tbody>
+      <tr>
+        <th>Age</th>
+        <th>Race/Ethnicity</th>
+        <th>Sex</th>
+      </tr>
+      <tr>
+        <td>{{age_text}}</td>
+        <td>{{race_text}}</td>
+        <td>{{sex_text}}</td>
+      </tr>
+    </tbody>
+    </table>
+      </div> 
+    </div>
 
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

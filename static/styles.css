@@ -22,3 +22,8 @@ div a {
     height: 432px; 
 }
 
+
+th, td {
+    border-bottom: 1px solid #ddd;
+  }
+
