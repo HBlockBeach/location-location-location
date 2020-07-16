@@ -6,11 +6,14 @@ from flask import (
     redirect,
     jsonify, 
     render_template)
-#import os - needed???
 import pickle
 import numpy as np
-#import boto3 - off for now
-#from keys import password    #this will need to be updated for the indivdual user
+import psycopg2
+import pandas as pd
+from pprint import pprint
+
+#this will need to be updated for the indivdual user
+#from keys import password
 
 # Flask Setup
 app = Flask(__name__)
@@ -32,7 +35,7 @@ def rentals():
 def team():
     return render_template("team.html")
 
-# Render results from model - work in progress - - - - - - - - - - - - - - - -
+# Render results from model
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == "POST":
@@ -124,13 +127,8 @@ def predict():
             #decision_text=f"value {new}",\
             #test_text= f'these are the columns {house_price} kajsdhfkjhakjhf {mortgage}'
         )
-  
-
-
-import psycopg2
-import pandas as pd
-from pprint import pprint
-
+ 
+# Connection to Database on AWS Server
 connection = psycopg2.connect(
     host = 'housingdb.cxrqyy0s90my.us-east-2.rds.amazonaws.com',
     port = 5432,
