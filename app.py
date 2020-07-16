@@ -10,7 +10,7 @@ from flask import (
 import pickle
 import numpy as np
 #import boto3 - off for now
-from keys import password    #this will need to be updated for the indivdual user
+#from keys import password    #this will need to be updated for the indivdual user
 
 # Flask Setup
 app = Flask(__name__)
@@ -112,7 +112,7 @@ connection = psycopg2.connect(
     host = 'housingdb.cxrqyy0s90my.us-east-2.rds.amazonaws.com',
     port = 5432,
     user = 'root',
-    password = password,
+    password = "",
     database='housing'
     )
 
@@ -138,3 +138,4 @@ if __name__ == "__main__":
 #if __name__ == "__main__":
     #app.run(host='0.0.0.0', port=8080)
 
+# END OF FILE
