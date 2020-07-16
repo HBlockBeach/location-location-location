@@ -37,10 +37,59 @@
         </div>
       </nav>
 
+  <div class=row id=headermess>
+    <h3 class = col-md-12 style= text-align:center;>
+      Looking to move? Got a new job? Not sure what you can afford?
+    </h3>
+    <h4 class = col-md-12 style= text-align:center;>
+      Use the tools below to estimate your income and determine whether or not you can afford to buy a house in a specific metro area! 
+    </h4>
+    
+  </div>
 
+  <br>
+
+
+  <div class="container" style="text-align: center;">
+    <div class="row margin-top-50">
+      <div class="col-md-3">
+        <aside class="filters">
+          <div class="panel panel-default">
+            <div class="panel-heading">Filter Search</div>
+            <div class="panel-body">
+              <form action="/predict" method="POST">
+                <div class="form-group">
+                  <ul class="list-group" id="filters">
+                    <li class= "dropdown list-group-item" >
+                      <label>Metro Area</label><br>
+                      <select id="city" name="city" onchange="updatePage(this.value)">
+                        <option value="New York, NY">New York, NY</option>
+
+                    </select>
+                    </li>
+                  </ul>
+                </div>
+                <button id="filter-btn" type="submit" class="btn btn-default" onsubmit="return false">Estimate Affordability</button>
+
+    
+
+              </form>
+            </div>
+          </div>
+        </aside>
+      </div>
+    
+      <div class="col-md-9" id="map2">
+
+      </div>
+    </div>
+   
+ 
 
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+      <script type="text/javascript" src="../static/config.js"></script>
+      <script src="../static/data.js"></script>
+      <script src="../static/rentals.js"></script>
 </body>
 </html>
