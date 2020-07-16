@@ -17,7 +17,7 @@ from pprint import pprint
 
 # Flask Setup
 app = Flask(__name__)
-model = pickle.load(open('model2.pkl', 'rb'))
+model = pickle.load(open('ml_models/model2.pkl', 'rb'))
 
 # Create route that renders index.html template
 @app.route("/")
@@ -221,9 +221,6 @@ def rentalpredict():
 
         income3 = str(income_wkly).lstrip('[').rstrip(']')
         
-        # Calculate max mortgate payment based on 4.3 average weeks in a month
-        can_afford = income * 4.3 * 0.28
-   
         sql = """
         SELECT *
         FROM rental_data
