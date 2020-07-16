@@ -1,3 +1,4 @@
+// logic.js - accessToken: API_KEY - will need to be updated for individual user
 var mymap = L.map('map').setView([37.09, -95.71], 4);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
