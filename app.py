@@ -135,7 +135,7 @@ connection = psycopg2.connect(
     host = 'housingdb.cxrqyy0s90my.us-east-2.rds.amazonaws.com',
     port = 5432,
     user = 'root',
-    password = "",
+    password = "ClassProject3718",
     database='housing'
     )
 
@@ -152,6 +152,20 @@ def data():
     new = datas.to_json(orient="values")
 
     return new
+
+
+@app.route("/rentals")
+
+def rentals_data():
+
+    sql = """
+    SELECT *
+    FROM rental_data
+    """
+    rentals = pd.read_sql(sql, con=connection)
+    rentals_df = rentals.to_json(orient="values")
+
+    return rentals_df
 
 # turn off for AWS deployment
 if __name__ == "__main__":
