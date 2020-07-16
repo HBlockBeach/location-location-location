@@ -86,6 +86,8 @@ def predict():
         income_wkly = ' '.join(map(str, income))
         income_yrly = ' '.join(map(str, income2))
 
+        income3 = str(income_wkly).lstrip('[').rstrip(']')
+        
         # Calculate max mortgate payment based on 4.3 average weeks in a month
         can_afford = income * 4.3 * 0.28
    
@@ -115,8 +117,11 @@ def predict():
         # Return website text
         return render_template('index.html',\
             summary_text=f"For a {age}-year-old {race} {sex}",\
-            prediction_text=f"the Estimated Income is: ${income_wkly} per week (${income_yrly} per year)",\
+            prediction_text=f"the Estimated Income is: ${income3} per week (${income_yrly} per year)",\
             decision_text=f"You {decision}  afford a house in {city}",\
+            age_text=age,\
+            race_text=race,\
+            sex_text=sex
             #decision_text=f"value {new}",\
             #test_text= f'these are the columns {house_price} kajsdhfkjhakjhf {mortgage}'
         )
