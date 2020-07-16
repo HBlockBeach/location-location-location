@@ -119,7 +119,7 @@ connection = psycopg2.connect(
 @app.route("/data")
 
 def data():
-    data = []
+    datas = []
 
     sql = """
     SELECT *
@@ -129,9 +129,6 @@ def data():
     new = datas.to_json(orient="values")
 
     return new
-
-    
-
 
 # turn off for AWS deployment
 if __name__ == "__main__":

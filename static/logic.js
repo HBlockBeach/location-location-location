@@ -1,25 +1,29 @@
 var mymap = L.map('map').setView([37.09, -95.71], 4);
 
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
-    id: 'mapbox/streets-v11',
+    id: 'streets-v11',
     tileSize: 512,
     zoomOffset: -1,
     accessToken: API_KEY
 }).addTo(mymap);
 
-//placeholder for updating map
-// var i;
-// for (i = 0; i < data.length; i++) {
-//     var marker = L.marker([data[i].lat, data[i].lon]).addTo(mymap)
-//     .bindPopup("<p>Metropolitan Area: " + (data[i].lat));
-// }
-
 var zillowdata = "http://127.0.0.1:5000/data";
 
-var data = d3.json(zillowdata);
+console.log("before d3.json")
 
-console.log(len(data))
+d3.json(zillowdata).then(function(housing_data) {
+    console.log("In d3.json call")
+    console.log(zillowdata);
+
+    console.log(housing_data[0]);
+
+    for (var i = 0; i < 25; i++) {
+        var marker = L.marker([housing_data[i][20], housing_data[i][21]]).addTo(mymap)
+        .bindPopup("<p>Metropolitan Area: " + (housing_data[i][1]));
+        
+    }
+});
         
   
