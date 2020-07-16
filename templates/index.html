@@ -74,7 +74,7 @@
                         </li>
                         <li class= "dropdown list-group-item" >
                           <label>Metro Area</label><br>
-                          <select id="city" name="city" >
+                          <select id="city" name="city" onchange="updatePage(this.value)">
                             <option value="New York, NY">New York, NY</option>
                             <option value="Los Angeles-Long Beach-Anaheim, CA">Los Angeles-Long Beach-Anaheim, CA</option>
                             <option value="Chicago, IL">Chicago, IL</option>
@@ -978,7 +978,7 @@
           </div>
         
           <div class="col-md-9" id="map">
-            <h1>this is where the map goes</h1>
+  
           </div>
         </div>
    
@@ -987,6 +987,7 @@
       <h3 class="updated_est">{{ summary_text }}</h3>
       <h3 class="updated_est">{{ prediction_text }}</h3>
       <h3 class="updated_est">{{ decision_text }}</h3>
+      <h3 class="updated_est">{{ test_text }}</h3>
     </div>
      
 
