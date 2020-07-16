@@ -6,15 +6,13 @@ from flask import (
     redirect,
     jsonify, 
     render_template)
-#import os - needed???
 import pickle
 import numpy as np
-#import boto3 - off for now
 #from keys import password    #this will need to be updated for the indivdual user
 
 # Flask Setup
 app = Flask(__name__)
-model = pickle.load(open('model2.pkl', 'rb'))
+model = pickle.load(open('ml_models/model2.pkl', 'rb'))
 
 # Create route that renders index.html template
 @app.route("/")
@@ -32,7 +30,7 @@ def rentals():
 def team():
     return render_template("team.html")
 
-# Render results from model - work in progress - - - - - - - - - - - - - - - -
+# Render results from model
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == "POST":
@@ -223,9 +221,6 @@ def rentalpredict():
 
         income3 = str(income_wkly).lstrip('[').rstrip(']')
         
-        # Calculate max mortgate payment based on 4.3 average weeks in a month
-        can_afford = income * 4.3 * 0.28
-   
         sql = """
         SELECT *
         FROM rental_data
