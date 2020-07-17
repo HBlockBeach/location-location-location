@@ -7,7 +7,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
     id: 'streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: ""
+    accessToken: API_KEY
 }).addTo(thismap);
 
 // // Turn off for AWS deployment
@@ -18,6 +18,13 @@ var rental = "http://127.0.0.1:5000/rentals";
 
 console.log("before d3.json")
 
+// Create icon for map
+var aIcon = L.icon({
+  iconUrl: "static/apartment.png",
+  iconSize:     [30, 30], // size of the icon
+  iconAnchor:   [15, 35], // point of the icon which will correspond to marker's location
+  popupAnchor:  [0, -35] // point from which the popup should open relative to the iconAnchor
+});
 
 function layer(){
     d3.json(rental).then(function(housing_data) {
@@ -28,51 +35,48 @@ function layer(){
       });
 
     for (var i = 0; i < 107; i++) {
-        var marker = L.marker([housing_data[i][19], housing_data[i][20]]).addTo(thismap)
+        var marker = L.marker([housing_data[i][19], housing_data[i][20]], {icon: aIcon}).addTo(thismap)
         .bindPopup("<p>Metropolitan Area: " + (housing_data[i][1])+ "<br>" + "The median rental price is $" + (housing_data[i][18]));
-        
     }
 })};
 
 layer()
 
-    function updatechoice(yearinput){
-      d3.json(rental).then(function(yearData) {
-          var dataForInput = yearData.filter(row => row[1].trim() == yearinput);
-          console.log(dataForInput)
-          rlat = dataForInput.map(row => row[19]);
-          rlng = dataForInput.map(row => row[20]);
-          rcity = dataForInput.map(row => row[1]);
-          rmedianvalue =dataForInput.map(row=>row[18])
+function updatechoice(yearinput){
+  d3.json(rental).then(function(yearData) {
+    var dataForInput = yearData.filter(row => row[1].trim() == yearinput);
+      console.log(dataForInput)
+      rlat = dataForInput.map(row => row[19]);
+      rlng = dataForInput.map(row => row[20]);
+      rcity = dataForInput.map(row => row[1]);
+      rmedianvalue =dataForInput.map(row=>row[18])
       
-          newlat= parseFloat(rlat)
-          newlng = parseFloat(rlng)
+      newlat= parseFloat(rlat)
+      newlng = parseFloat(rlng)
           
 
-          var formatter = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-          });
+      var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      });
           
-          newmedian = formatter.format(rmedianvalue);
+      newmedian = formatter.format(rmedianvalue);
 
-          console.log(newmedian)
-          console.log(newlat)
-          console.log(newlng)
-          console.log(rcity)
+      console.log(newmedian)
+      console.log(newlat)
+      console.log(newlng)
+      console.log(rcity)
           
-          var marker = L.marker([newlat, newlng]).addTo(thismap)
-            .bindPopup("<p>Metropolitan Area: " + rcity + "<br>" + "\n" + "The median house price is " + newmedian).openPopup();
-        })}
+      var marker = L.marker([newlat, newlng], {icon: aIcon}).addTo(thismap)
+      .bindPopup("<p>Metropolitan Area: " + rcity + "<br>" + "\n" + "The median house price is " + newmedian).openPopup();
+})};
 
 function newvalue(input){
   d3.json(rental).then(function(update) {
   var dataForInput = update.filter(row => row[1].trim() == input);
  
   medianvalues =dataForInput.map(row=>row[18])
-  console.log(medianvalues)
-  ;
-
+  console.log(medianvalues);
 })};
 
 d3.selectAll("#city").on("change", updatePage);
