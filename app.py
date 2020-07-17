@@ -13,7 +13,7 @@ import pandas as pd
 from pprint import pprint
 
 #this will need to be updated for the indivdual user
-from keys import password
+#from keys import password
 
 # Flask Setup
 app = Flask(__name__)
@@ -36,6 +36,10 @@ def rentals():
 @app.route("/team.html")
 def team():
     return render_template("team.html")
+
+@app.route("/charts.html")
+def charts():
+    return render_template("charts.html")
 
 # Render results from model for housing data
 @app.route('/predict', methods=['GET', 'POST'])
