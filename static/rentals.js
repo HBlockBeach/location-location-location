@@ -13,7 +13,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
 var rental = "http://127.0.0.1:5000/rentals";
 
 // // Turn on for AWS deployment
-// //var zillowdata = "http://ec2-18-191-1-190.us-east-2.compute.amazonaws.com:8080/rentals";
+// //var rental = "http://ec2-18-191-1-190.us-east-2.compute.amazonaws.com:8080/rentals";
 
  console.log("before d3.json")
 
