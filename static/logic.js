@@ -28,7 +28,7 @@ function layer(){
 
     for (var i = 0; i < 25; i++) {
         var marker = L.marker([housing_data[i][20], housing_data[i][21]]).addTo(mymap)
-        .bindPopup("<p>Metropolitan Area: " + (housing_data[i][1]));
+        .bindPopup("<p>Metropolitan Area: " + (housing_data[i][1]) + "<br>" + "The median housing price is $" + (housing_data[i][18]));
         
     }
 })};
