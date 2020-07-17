@@ -74,7 +74,8 @@ function medianvalue(input){
 
 })};
 
-d3.selectAll("#city").on("change", updatePage);
+//d3.selectAll("#city").on("change", updatePage);
+
 function updatePage() {
   // Use D3 to select the dropdown menu
   var dropdownMenu = d3.selectAll("#city").node();
@@ -87,6 +88,5 @@ function updatePage() {
   createchart2(selectedOption)
   medianvalue(selectedOption)
 };
-
 
 

@@ -67,35 +67,11 @@
 
       <div class="container" style="text-align: center;">
         <div class="row margin-top-50">
-          <div class="col-md-4">
+          <div class="col-md-12">
             <aside class="filters">
               <div class="panel panel-default">
                 <div class="panel-heading">Filter Search</div>
                 <div class="panel-body">
-                  <form action="/predict" method="POST" onsubmit='updatePage()'>
-                    <div class="form-group">
-                      <ul class="list-group" id="filters">
-                        <li class="filter list-group-item">
-                          <label>Age</label>
-                          <input class="form-control" id="age" name="age" type="text" placeholder="40">
-                        </li>
-                        <li class= "dropdown list-group-item" >
-                          <label> Sex</label><br>
-                          <select id="sex" name="sex">
-                            <option value="Female">Female</option>
-                            <option value="Male">Male</option>
-                          </select>
-                        </li>
-
-                        <li class= "dropdown list-group-item" >
-                          <label>Race/Ethnicity</label><br>
-                          <select id="race" name="race">
-                            <option value="Black">Black</option>
-                            <option value="Hispanic">Hispanic</option>
-                            <option value="Asian">Asian</option>
-                            <option value="White">White</option>
-                          </select>
-                        </li>
                         <li class= "dropdown list-group-item" >
                           <label>Metro Area</label><br>
                           <select id="city" name="city">
@@ -989,36 +965,25 @@
                         </li>
                       </ul>
                     </div>
-                    <button id="filter-btn" type="submit" class="btn btn-default">Estimate Affordability</button>
-
-                    {% if feedback %}
-                      <p class="text-danger float-right">{{ feedback }}</p>
-                    {% endif %} 
+                   
 
                   </form>
                 </div>
               </div>
             </aside>
-          </div>
-        
-          <div class="col-md-8" id="map">
-  
-          </div>
-        </div>
-       
+         
+            <div class="row">
 
-    <div class="row">
-      <h3 class="updated_est">{{ summary_text }}</h3>
-      <h3 class="updated_est">{{ prediction_text }}</h3>
-      <h3 class="updated_est">{{ decision_text }}</h3>
-    </div>
-    
-
+            <div class="col-md-6" id=chart></div>
+            <div class="col-md-6" id=chart2></div>
+ </div>
+ </div>
+ </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="../static/config.js"></script>
       <script src="../static/data.js"></script>
       <script src="../static/logic.js"></script>
-      
+      <script src="../static/charts.js"></script>
 </body>
 </html>
