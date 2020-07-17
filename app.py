@@ -13,10 +13,12 @@ import pandas as pd
 from pprint import pprint
 
 #this will need to be updated for the indivdual user
-#from keys import password
+from keys import password
 
 # Flask Setup
 app = Flask(__name__)
+
+# Pull Machine Learning (ML) model
 model = pickle.load(open('ml_models/model2.pkl', 'rb'))
 
 # Create route that renders index.html template
@@ -35,7 +37,7 @@ def rentals():
 def team():
     return render_template("team.html")
 
-# Render results from model
+# Render results from model for housing data
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == "POST":
@@ -107,7 +109,7 @@ def predict():
        
         value = new.iloc[0]["05-31-2020"]
 
-        # NEED TO PULL MEDIAN VALUE FROM ZILLOW FILE - placeholder for now
+        # NEED TO PULL MEDIAN VALUE FROM ZILLOW FILE
         house_price = value
         mortgage = 408/100000 * house_price
 
@@ -133,12 +135,12 @@ connection = psycopg2.connect(
     host = 'housingdb.cxrqyy0s90my.us-east-2.rds.amazonaws.com',
     port = 5432,
     user = 'root',
-    password = "Password",
+    password = password,
     database='housing'
     )
 
+# Create route for housing data
 @app.route("/data")
-
 def data():
     datas = []
 
@@ -151,11 +153,9 @@ def data():
 
     return new
 
-
+# Create route for rentals data
 @app.route("/rentals")
-
 def rentals_data():
-
     sql = """
     SELECT *
     FROM rental_data
@@ -165,8 +165,7 @@ def rentals_data():
 
     return rentals_df
 
-
-
+# Create route for rentals predict data
 @app.route('/rentalpredict', methods=['GET', 'POST'])
 def rentalpredict():
     if request.method == "POST":
