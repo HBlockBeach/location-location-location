@@ -1,9 +1,10 @@
-
+// charts.js
 // Turn off for AWS deployment
 var  chartdata = "http://127.0.0.1:5000/data";
 
 // Turn on for AWS deployment
 //var chartdata = "http://ec2-18-191-1-190.us-east-2.compute.amazonaws.com:8080/data";
+
 // Build bar chart for turnout %
 function createchart(chartsinput){
   d3.json(chartdata).then(function(charts) {
@@ -60,10 +61,12 @@ function createchart(chartsinput){
   
    });
   };
-  var  rentaldata = "http://127.0.0.1:5000/rentals";
 
-  // Turn on for AWS deployment
-  //var rentaldata = "http://ec2-18-191-1-190.us-east-2.compute.amazonaws.com:8080/rentals";
+// Turn off for AWS deployment
+var  rentaldata = "http://127.0.0.1:5000/rentals";
+
+// Turn on for AWS deployment
+//var rentaldata = "http://ec2-18-191-1-190.us-east-2.compute.amazonaws.com:8080/rentals";
 
   function createchart2(chartsinput){
     d3.json(rentaldata).then(function(charts) {

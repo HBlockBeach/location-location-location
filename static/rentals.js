@@ -1,3 +1,4 @@
+// rentals.js - accessToken: API_KEY - will need to be updated for individual user
 var thismap = L.map('map2').setView([37.09, -95.71], 4);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -15,7 +16,7 @@ var rental = "http://127.0.0.1:5000/rentals";
 // // Turn on for AWS deployment
 // //var rental = "http://ec2-18-191-1-190.us-east-2.compute.amazonaws.com:8080/rentals";
 
- console.log("before d3.json")
+console.log("before d3.json")
 
 
 function layer(){
