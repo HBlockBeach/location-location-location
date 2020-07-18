@@ -142,22 +142,26 @@ var  rentaldata = "http://127.0.0.1:5000/rentals";
 
     //document.getElementById('filter-btn').onclick = newchart();
   
-// d3.json(chartdata).then(function(data){
+d3.json(chartdata).then(function(data){
 
-//   //console.log(data)
-//   dropdown= document.getElementById("city")
+  //console.log(data)
+  dropdown= document.getElementById("city")
 
-//   states = []
-//   var i
+  states = []
+  var i
 
-//   for (i=0; i< data.length; i++){
-//     console.log(data[i][2])
-//     if(!(data[i][2] in states))
-//   }
+  for (i=0; i< data.length; i++){
+    //console.log(data[i][2])
+    if(!(data[i][2] in states)){
+      states.push((data[i][2]).trim())
+    }
+  }
+
+  console.log(states)
   
 
 
 
 
 
-//   });
+  });
