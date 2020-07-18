@@ -1,32 +1,29 @@
 .teamimg {
-    max-width: 400px;
-    max-height: 400px;
+    width: 400px;
+    height: 350;
     padding-left: 50px;
     padding-right: 50px;
-    object-fit: scale-down;
 }
 
 p {
     text-align: center;
 }
 
-div a {
-    text-align: center;
-}
 
 .updated_est {
     text-align: center;
 }
 
-#map {
-    height: 432px; 
-}
-
-#map2 {
+#map, #map2 {
     height: 432px; 
 }
 
 #chart, #chart2{
     height: 500px;
+
+}
+
+a#teamlink {
+    align-self: center;
 
 }

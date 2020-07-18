@@ -13,10 +13,6 @@ function createchart(chartsinput){
     x= ["1/2019", "2/2019", "3/2019", "4/2019", "5/2019" , "6/2019", "7/2019", "8/2019", "9/2019", "10/2019", "11/2019", "12/2019", "1/2020", "2/2020", "3/2020", "4/2020", "5/2020"]
     datalist = []
 
-    // var i;
-    // for (i = 0; i < charts.length; i++) {
-    //   for(col = 1; col <= col.length; col++);
-  
     for (let [key, value] of Object.entries(dataForInput)) {
       datalist.push(value[3]);
       datalist.push(value[4])
@@ -42,7 +38,7 @@ function createchart(chartsinput){
       currency: 'USD',
     });
 
-   var perc_change = (datalist[16] - datalist[0])/datalist[0] *100
+   var perc_change = Math.round((datalist[16] - datalist[0])/datalist[0] *100)
    console.log(perc_change)
 
     y=datalist
@@ -74,11 +70,7 @@ var  rentaldata = "http://127.0.0.1:5000/rentals";
       var dataForInput = charts.filter(row => row[1].trim() == chartsinput);
       x= ["1/2019", "2/2019", "3/2019", "4/2019", "5/2019" , "6/2019", "7/2019", "8/2019", "9/2019", "10/2019", "11/2019", "12/2019", "1/2020", "2/2020", "3/2020", "4/2020", "5/2020"]
       datalist = []
-  
-      // var i;
-      // for (i = 0; i < charts.length; i++) {
-      //   for(col = 1; col <= col.length; col++);
-    
+
       for (let [key, value] of Object.entries(dataForInput)) {
         datalist.push(value[2]);
         datalist.push(value[3])
@@ -99,8 +91,8 @@ var  rentaldata = "http://127.0.0.1:5000/rentals";
         datalist.push(value[18])
       };
       
-      var perc_change = (datalist[16] - datalist[0])/datalist[0] *100
-      console.log(perc_change)
+      var perc_change = Math.round((datalist[16] - datalist[0])/datalist[0] *100)
+
       var formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
@@ -109,12 +101,11 @@ var  rentaldata = "http://127.0.0.1:5000/rentals";
       var datalist2 = []
       var i
       for (i=0; i<datalist.length; i++){
-        console.log(datalist[i])
+        //console.log(datalist[i])
         currency = formatter.format(datalist[i])
         datalist2.push(currency)
       }
 
-      console.log(datalist2)
       y=datalist2
   
       var trace1 = [{
@@ -140,8 +131,8 @@ var  rentaldata = "http://127.0.0.1:5000/rentals";
     var dropdownMenuID = dropdownMenu.id;
     // Assign the dropdown menu option to a variable
     var selectedOption = dropdownMenu.value;
-    console.log(dropdownMenuID);
-    console.log(selectedOption);
+    //console.log(dropdownMenuID);
+    //console.log(selectedOption);
     createchart(selectedOption)
     createchart2(selectedOption);}
 
@@ -150,4 +141,23 @@ var  rentaldata = "http://127.0.0.1:5000/rentals";
     createchart2("New York, NY")
 
     //document.getElementById('filter-btn').onclick = newchart();
-    
+  
+// d3.json(chartdata).then(function(data){
+
+//   //console.log(data)
+//   dropdown= document.getElementById("city")
+
+//   states = []
+//   var i
+
+//   for (i=0; i< data.length; i++){
+//     console.log(data[i][2])
+//     if(!(data[i][2] in states))
+//   }
+  
+
+
+
+
+
+//   });

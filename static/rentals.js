@@ -7,7 +7,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
     id: 'streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: API_KEY
+    accessToken: "pk.eyJ1IjoiYmxvY2toIiwiYSI6ImNrYWVpcTBlZTAyNDcycHJ3cTgyOTMzbzIifQ.Ig5e-_6ao22OX0xPpryIEA"
 }).addTo(thismap);
 
 // // Turn off for AWS deployment
@@ -15,8 +15,6 @@ var rental = "http://127.0.0.1:5000/rentals";
 
 // // Turn on for AWS deployment
 // //var rental = "http://ec2-18-191-1-190.us-east-2.compute.amazonaws.com:8080/rentals";
-
-console.log("before d3.json")
 
 // Create icon for map
 var aIcon = L.icon({
@@ -79,7 +77,7 @@ function newvalue(input){
   console.log(medianvalues);
 })};
 
-d3.selectAll("#city").on("change", updatePage);
+d3.selectAll("#city").on("change", newMarker);
 function newMarker() {
   // Use D3 to select the dropdown menu
   var dropdownMenu = d3.selectAll("#city").node();
