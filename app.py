@@ -27,15 +27,20 @@ model = pickle.load(open('ml_models/model2.pkl', 'rb'))
 def index():
     return render_template("index.html")
 
+# Create route that renders index.html template
+@app.route("/housing.html")
+def housing():
+    return render_template("housing.html")
+
 # Create route that renders rentals.html template
 @app.route("/rentals.html")
 def rentals():
     return render_template("rentals.html")
 
-# Create route that renders team.html template
-@app.route("/team.html")
-def team():
-    return render_template("team.html")
+# # Create route that renders team.html template
+# @app.route("/team.html")
+# def team():
+#     return render_template("team.html")
 
 @app.route("/charts.html")
 def charts():
@@ -113,7 +118,7 @@ def predict():
        
         value = new.iloc[0]["05-31-2020"]
 
-        # NEED TO PULL MEDIAN VALUE FROM ZILLOW FILE
+        # Pull median home value from Zillow file
         house_price = value
         mortgage = 408/100000 * house_price
 

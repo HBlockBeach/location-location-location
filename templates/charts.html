@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
      <!--link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css')}}"-->
-     <link rel="stylesheet" href= "../static/styles.css">
+     <link rel="stylesheet" href= "../css/styles.css">
      
      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -23,10 +30,9 @@
      <title>location-location-location</title>
 </head>
 <body>
-    <nav class="nav navbar navbar-default">
+    <!-- <nav class="nav navbar navbar-default">
         <div class="container-fluid navbar-custom">
-  
-          
+                  
           <div class="row dropback">
             <div class="nav navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -40,7 +46,6 @@
               </div>
             </div>
   
-            
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right navbar-right-custom">
                 <li><a href="rentals.html">Rentals</a></li>
@@ -49,6 +54,20 @@
               </ul>
             </div>
           </div>
+        </div>
+      </nav> -->
+
+      <!-- Navigation-->
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#housing">Housing</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#rentals">Rentals</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#charts">Charts</a></li>
+                </ul>
+            </div>
         </div>
       </nav>
 
@@ -61,7 +80,6 @@
 
       <br>
   
-
       <div class="container" style="text-align: center;">
         <div class="row margin-top-50">
           <div class="col-md-12">
@@ -958,29 +976,36 @@
                             <option value="Vermillion, SD">Vermillion, SD</option>
                             <option value="Craig, CO">Craig, CO</option>
                             <option value="Ketchikan, AK">Ketchikan, AK</option>
-                        </select>
+                          </select>
                         </li>
                       </ul>
-                    </div>
-                   
-
-                  </form>
                 </div>
               </div>
             </aside>
-         
-            <div class="row">
-
+          </div>
+                  
+          <div class="row">
             <div class="col-md-6" id=chart></div>
             <div class="col-md-6" id=chart2></div>
- </div>
- </div>
- </div>
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="../static/config.js"></script>
-      <script src="../static/data.js"></script>
-      <script src="../static/logic.js"></script>
-      <script src="../static/charts.js"></script>
+          </div>
+
+ <!-- Footer-->
+ <footer class="footer py-4">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-lg-12 text-lg-center">Copyright © Team 3: CWRU Data Analytics Bootcamp 2020</div>
+      </div>
+  </div>
+</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../static/config.js"></script>
+    <script src="../static/data.js"></script>
+    <script src="../static/logic.js"></script>
+    <script src="../static/charts.js"></script>
 </body>
 </html>
