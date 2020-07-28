@@ -79,11 +79,11 @@ function medianvalue(input){
 
 })};
 
-d3.selectAll("#city").on("change", updatePage);
+d3.selectAll("#dropdown").on("change", updatePage);
 
 function updatePage() {
   // Use D3 to select the dropdown menu
-  var dropdownMenu = d3.selectAll("#city").node();
+  var dropdownMenu = d3.selectAll("#dropdown").node();
   // Assign the dropdown menu item ID to a variable
   var dropdownMenuID = dropdownMenu.id;
   // Assign the dropdown menu option to a variable
