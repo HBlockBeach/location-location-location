@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css')}}">
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -20,10 +20,10 @@
             <div class="container">
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#housing">Housing</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#rentals">Rentals</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#charts">Charts</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="housing.html">Housing</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="rentals.html">Rentals</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="charts.html">Charts</a></li>
                     </ul>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/hunter3.jpeg" alt="" />
+                            <img class="mx-auto rounded-circle" src="assets/img/team/hunter.jpeg" alt="" />
                             <h4>Hunter Block-Beach</h4>
                             <p class="text-muted">Python, HTML, Javascript, PostgreSQL</p>
                             <a class="btn btn-dark btn-social mx-2" href="https://github.com/HBlockBeach" target="_blank"><i class="fab fa-github"></i></a>
