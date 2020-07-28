@@ -13,7 +13,7 @@ import pandas as pd
 from pprint import pprint
 
 #this will need to be updated for the indivdual user
-from keys import password
+#from keys import password
 
 # Flask Setup
 app = Flask(__name__)
@@ -128,7 +128,7 @@ def predict():
             decision = "CAN"
 
         # Return website text
-        return render_template('index.html',\
+        return render_template('housing.html',\
             summary_text=f"For a {age}-year-old {race} {sex}",\
             prediction_text=f"the Estimated Income is: ${income3} per week (${income_yrly} per year)",\
             decision_text=f"You {decision}  afford a house in {city}",\
