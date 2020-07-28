@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!--link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css')}}"-->
-    <link rel="stylesheet" href= "../static/styles.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css')}}">
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -23,33 +23,28 @@
     <title>location-location-location</title>
 </head>
 <body>
-    <nav class="nav navbar navbar-default">
-        <div class="container-fluid navbar-custom">
-  
-          
-          <div class="row dropback">
-            <div class="nav navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <div class="col-xs-9 phone-nav">
-                <a class="navbar-brand" href="index.html" id="logo">Home</a>
-              </div>
-            </div>
-  
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right navbar-right-custom">
-                <li><a href="rentals.html">Rentals</a></li>
-                <li><a href="charts.html">Charts</a></li>
-                <li><a href="team.html">Team</a></li>
+  <body>
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style = background-color:black>
+      <div class="container">
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav text-uppercase ml-auto">
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Home</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="housing.html">Housing</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="rentals.html">Rentals</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="charts.html">Charts</a></li>
               </ul>
-            </div>
           </div>
-        </div>
-      </nav>
+      </div>
+  </nav>
+    </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
   <div class=row id=headermess>
     <h3 class = col-md-12 style= text-align:center;>
