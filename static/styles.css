@@ -9038,7 +9038,7 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: black;
-  background-image: url("../assets/img/home.jpg");
+  background-image: url("../templates/assets/img/home.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -9050,7 +9050,7 @@ header.masthead-chart {
   padding-bottom: 6rem;
   text-align: center;
   color: black;
-  background-image: url("../assets/img/chart_background.jpg");
+  background-image: url("../templates/assets/img/chart_background.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
