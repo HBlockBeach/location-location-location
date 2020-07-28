@@ -59,7 +59,7 @@ def predict():
 
         if missing:
             feedback = f"Missing fields for {', '.join(missing)}"
-            return render_template("index.html", feedback=feedback)
+            return render_template("housing.html", feedback=feedback)
 
         # Receive form inputs
         age = int(request.form["age"])
@@ -187,7 +187,7 @@ def rentalpredict():
 
         if missing:
             feedback = f"Missing fields for {', '.join(missing)}"
-            return render_template("index.html", feedback=feedback)
+            return render_template("rental.html", feedback=feedback)
 
         # Receive form inputs
         age = int(request.form["age"])
