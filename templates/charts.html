@@ -62,10 +62,10 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#housing">Housing</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#rentals">Rentals</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#charts">Charts</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="housing.html">Housing</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="rentals.html">Rentals</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="charts.html">Charts</a></li>
                 </ul>
             </div>
         </div>
@@ -88,9 +88,9 @@
                             <div class="panel panel-default" style="background-color:grey">
                               <div class="panel-heading"><h4>Choose a US Metro area to view historical median prices for both homes and rentals.</h4></div>
                               <div class="panel-body">
-                                      <li class= "dropdown list-group-item" >
-                                        <label><h4>Metro Area</h4></label><br>
-                                        <select id="city" name="city">
+                                <label><h4>Metro Area</h4></label><br>
+                                      <input id=dropdown type=text list =city >
+                                        <datalist id="city" name="city">
                                           <option value="New York, NY">New York, NY</option>
                                           <option value="Los Angeles-Long Beach-Anaheim, CA">Los Angeles-Long Beach-Anaheim, CA</option>
                                           <option value="Chicago, IL">Chicago, IL</option>
@@ -977,14 +977,14 @@
                                           <option value="Vermillion, SD">Vermillion, SD</option>
                                           <option value="Craig, CO">Craig, CO</option>
                                           <option value="Ketchikan, AK">Ketchikan, AK</option>
-                                        </select>
+                                        </datalist>
                                       </li>
                                     </ul>
                               </div>
                             </div>
                           </aside>
                         </div>
-                                
+
                         <div class="row">
                           <div class="col-md-6" id=chart style= "height:500px"></div>
                           <div class="col-md-6" id=chart2 style= "height:500px"></div>
@@ -1014,5 +1014,6 @@
     <script src="../static/data.js"></script>
     <script src="../static/logic.js"></script>
     <script src="../static/charts.js"></script>
+  
 </body>
 </html>

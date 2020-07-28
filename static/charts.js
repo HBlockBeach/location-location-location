@@ -39,7 +39,7 @@ function createchart(chartsinput){
     });
 
    var perc_change = Math.round((datalist[16] - datalist[0])/datalist[0] *100)
-   console.log(perc_change)
+   //console.log(perc_change)
 
     y=datalist
 
@@ -122,25 +122,22 @@ var  rentaldata = "http://127.0.0.1:5000/rentals";
     
      });
     }; 
-  d3.selectAll("#city").on("change", newchart);
+  d3.selectAll("#dropdown").on("change", newchart);
 
   function newchart() {
     // Use D3 to select the dropdown menu
-    var dropdownMenu = d3.selectAll("#city").node();
+    var dropdownMenu = d3.selectAll("#dropdown").node();
     // Assign the dropdown menu item ID to a variable
     var dropdownMenuID = dropdownMenu.id;
     // Assign the dropdown menu option to a variable
     var selectedOption = dropdownMenu.value;
-    //console.log(dropdownMenuID);
-    //console.log(selectedOption);
+    console.log(dropdownMenuID);
+    console.log(selectedOption);
     createchart(selectedOption)
     createchart2(selectedOption);}
 
-   
-    createchart("New York, NY")
-    createchart2("New York, NY")
 
-    //document.getElementById('filter-btn').onclick = newchart();
+
   
 d3.json(chartdata).then(function(data){
 
@@ -157,11 +154,6 @@ d3.json(chartdata).then(function(data){
     }
   }
 
-  console.log(states)
+  //console.log(states)
   
-
-
-
-
-
-  });
+});
