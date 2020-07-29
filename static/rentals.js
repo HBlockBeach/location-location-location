@@ -7,18 +7,18 @@ L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
     id: 'streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: "pk.eyJ1IjoiYmxvY2toIiwiYSI6ImNrYWVpcTBlZTAyNDcycHJ3cTgyOTMzbzIifQ.Ig5e-_6ao22OX0xPpryIEA"
+    accessToken: API_KEY
 }).addTo(thismap);
 
 // // Turn off for AWS deployment
 var rental = "http://127.0.0.1:5000/rentals";
 
 // // Turn on for AWS deployment
-// //var rental = "http://ec2-18-191-1-190.us-east-2.compute.amazonaws.com:8080/rentals";
+//var rental = "http://ec2-18-191-1-190.us-east-2.compute.amazonaws.com:8080/rentals";
 
 // Create icon for map
 var aIcon = L.icon({
-  iconUrl: "static/apartment.png",
+  iconUrl: "static/img/apartment.png",
   iconSize:     [15, 15], // size of the icon
   iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
   popupAnchor:  [0, -30] // point from which the popup should open relative to the iconAnchor
@@ -66,7 +66,7 @@ function updatechoice(yearinput){
       console.log(rcity)
           
       var marker = L.marker([newlat, newlng], {icon: aIcon}).addTo(thismap)
-      .bindPopup("<p>Metropolitan Area: " + rcity + "<br>" + "\n" + "The median house price is " + newmedian).openPopup();
+      .bindPopup("<p>Metropolitan Area: " + rcity + "<br>" + "\n" + "The median rental price is " + newmedian).openPopup();
 })};
 
 function newvalue(input){
