@@ -9115,13 +9115,13 @@ header.masthead .masthead-heading, header.masthead-chart .masthead-heading {
 }
 
 .footer {
-  background-color: rgb(133, 193, 209);
+  background-color: rgb(81, 110, 187);
   height: 50px;
   margin: 0;
 }
 
 .footer p {
-  color: black;
+  color: white;
   margin-top: 10px;
   text-align: center;
   font-size: 15px;
@@ -9151,4 +9151,8 @@ a#teamlink {
   border-radius: 100 50;
   border-color: gray;
   border-width: thin;
-}   
+} 
+
+.panel {
+  margin-top: 2rem;
+}
