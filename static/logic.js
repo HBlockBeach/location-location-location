@@ -20,7 +20,7 @@ console.log("before d3.json")
 
 // Create icon for map
 var cIcon = L.icon({
-  iconUrl: "static/house.png",
+  iconUrl: "static/img/house.png",
   iconSize:     [18, 18], // size of the icon
   iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
   popupAnchor:  [0, -30] // point from which the popup should open relative to the iconAnchor
