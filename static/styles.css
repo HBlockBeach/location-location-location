@@ -2294,13 +2294,12 @@ textarea.form-control {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  background-color: transparent;
-  border: 1px solid transparent;
+  background-color: lightblue;
+  border: 1px solid;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .btn {
@@ -9115,13 +9114,13 @@ header.masthead .masthead-heading, header.masthead-chart .masthead-heading {
 }
 
 .footer {
-  background-color: rgb(133, 193, 209);
+  background-color: rgb(81, 110, 187);
   height: 50px;
   margin: 0;
 }
 
 .footer p {
-  color: black;
+  color: white;
   margin-top: 10px;
   text-align: center;
   font-size: 15px;
@@ -9151,4 +9150,8 @@ a#teamlink {
   border-radius: 100 50;
   border-color: gray;
   border-width: thin;
-}   
+} 
+
+.panel {
+  margin-top: 2rem;
+}
