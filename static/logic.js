@@ -7,7 +7,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
     id: 'streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: "pk.eyJ1IjoiYmxvY2toIiwiYSI6ImNrYWVpcTBlZTAyNDcycHJ3cTgyOTMzbzIifQ.Ig5e-_6ao22OX0xPpryIEA"
+    accessToken: API_KEY
 }).addTo(mymap);
 
 // Turn off for AWS deployment
@@ -16,7 +16,7 @@ var zillowdata = "http://127.0.0.1:5000/data";
 // Turn on for AWS deployment
 //var zillowdata = "http://ec2-18-191-1-190.us-east-2.compute.amazonaws.com:8080/data";
 
-console.log("before d3.json")
+//console.log("before d3.json")
 
 // Create icon for map
 var cIcon = L.icon({
@@ -75,7 +75,7 @@ function medianvalue(input){
   var dataForInput = update.filter(row => row[1].trim() == input);
  
   medianvalues =dataForInput.map(row=>row[19])
-  console.log(medianvalues);
+  //console.log(medianvalues);
 
 })};
 
