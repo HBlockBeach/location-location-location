@@ -37,11 +37,7 @@ def housing():
 def rentals():
     return render_template("rentals.html")
 
-# # Create route that renders team.html template
-# @app.route("/team.html")
-# def team():
-#     return render_template("team.html")
-
+# Create route that renders charts.html template
 @app.route("/charts.html")
 def charts():
     return render_template("charts.html")
@@ -135,8 +131,6 @@ def predict():
             age_text=age,\
             race_text=race,\
             sex_text=sex
-            #decision_text=f"value {new}",\
-            #test_text= f'these are the columns {house_price} kajsdhfkjhakjhf {mortgage}'
         )
  
 # Connection to Database on AWS Server
@@ -260,8 +254,6 @@ def rentalpredict():
             age_text=age,\
             race_text=race,\
             sex_text=sex
-            #decision_text=f"value {new}",\
-            #test_text= f'these are the columns {house_price} kajsdhfkjhakjhf {mortgage}'
         )
   
 
