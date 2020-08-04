@@ -32,10 +32,14 @@ function layer(){
     //console.log(zillowdata);
 
     //console.log(housing_data[885]);
+    var formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
 
     for (var i = 0; i < 25; i++) {
         var marker = L.marker([housing_data[i][20], housing_data[i][21]], {icon: cIcon}).addTo(mymap)
-        .bindPopup("<p>Metropolitan Area: " + (housing_data[i][1]) + "<br>" + "The median housing price is $" + (housing_data[i][18]));
+        .bindPopup("<p>Metropolitan Area: " + (housing_data[i][1]) + "<br>" + "The median housing price is " + (formatter.format(housing_data[i][18])));
     }
 })};
 
