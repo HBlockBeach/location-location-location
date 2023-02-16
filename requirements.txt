@@ -17,4 +17,4 @@ pylint-flask==0.6
 pylint-plugin-utils==0.6
 scikit-learn>=0.18
 scipy==1.4.1
-werkzeug==1.0.1
+werkzeug==2.2.3
